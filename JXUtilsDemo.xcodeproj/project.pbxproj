@@ -15,6 +15,9 @@
 		2D35085C219343160052B6C4 /* JXUtilsDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D35085B219343160052B6C4 /* JXUtilsDemoTests.swift */; };
 		2D350867219343160052B6C4 /* JXUtilsDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D350866219343160052B6C4 /* JXUtilsDemoUITests.swift */; };
 		57244260B486B77503A5ACD2 /* Pods_JXUtilsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52A53E738F170C66F1021490 /* Pods_JXUtilsDemo.framework */; };
+		63CF372921A14CA400A71B42 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63CF372C21A14CA400A71B42 /* Alamofire.framework */; };
+		63CF372A21A14CA400A71B42 /* HandyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63CF372D21A14CA400A71B42 /* HandyJSON.framework */; };
+		63CF372B21A14CA400A71B42 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63CF372E21A14CA400A71B42 /* SVProgressHUD.framework */; };
 		63EAF929219E5E4400733622 /* JXSwiftExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EAF928219E5E4400733622 /* JXSwiftExtention.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +54,12 @@
 		2D350866219343160052B6C4 /* JXUtilsDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JXUtilsDemoUITests.swift; sourceTree = "<group>"; };
 		2D350868219343160052B6C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52A53E738F170C66F1021490 /* Pods_JXUtilsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JXUtilsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63CF372621A14C6F00A71B42 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63CF372721A14C6F00A71B42 /* HandyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HandyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63CF372821A14C6F00A71B42 /* SVProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SVProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63CF372C21A14CA400A71B42 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63CF372D21A14CA400A71B42 /* HandyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HandyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63CF372E21A14CA400A71B42 /* SVProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SVProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63EAF928219E5E4400733622 /* JXSwiftExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXSwiftExtention.swift; sourceTree = "<group>"; };
 		DE9FE443C0D4FEB4FBAF7C24 /* Pods-JXUtilsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JXUtilsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-JXUtilsDemo/Pods-JXUtilsDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,6 +69,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63CF372921A14CA400A71B42 /* Alamofire.framework in Frameworks */,
+				63CF372A21A14CA400A71B42 /* HandyJSON.framework in Frameworks */,
+				63CF372B21A14CA400A71B42 /* SVProgressHUD.framework in Frameworks */,
 				57244260B486B77503A5ACD2 /* Pods_JXUtilsDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,6 +96,12 @@
 		0B35D0454530C5132A39784F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				63CF372C21A14CA400A71B42 /* Alamofire.framework */,
+				63CF372D21A14CA400A71B42 /* HandyJSON.framework */,
+				63CF372E21A14CA400A71B42 /* SVProgressHUD.framework */,
+				63CF372621A14C6F00A71B42 /* Alamofire.framework */,
+				63CF372721A14C6F00A71B42 /* HandyJSON.framework */,
+				63CF372821A14C6F00A71B42 /* SVProgressHUD.framework */,
 				52A53E738F170C66F1021490 /* Pods_JXUtilsDemo.framework */,
 			);
 			name = Frameworks;
@@ -171,7 +189,7 @@
 				2D35083F219343160052B6C4 /* Sources */,
 				2D350840219343160052B6C4 /* Frameworks */,
 				2D350841219343160052B6C4 /* Resources */,
-				269C3D2BB61DE75351A53D55 /* [CP] Embed Pods Frameworks */,
+				932EE1E2BFE12136D03ECF3A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -292,7 +310,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		269C3D2BB61DE75351A53D55 /* [CP] Embed Pods Frameworks */ = {
+		932EE1E2BFE12136D03ECF3A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -301,13 +319,11 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-JXUtilsDemo/Pods-JXUtilsDemo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -509,11 +525,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PU7ZTMK32H;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = JXUtilsDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jinxin.JXUtilsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -524,11 +543,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PU7ZTMK32H;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = JXUtilsDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jinxin.JXUtilsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -1,24 +1,20 @@
 PODS:
   - Alamofire (4.7.3)
   - HandyJSON (4.0.0-beta.1)
-  - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - Alamofire
   - HandyJSON (= 4.0.0-beta.1)
-  - SVProgressHUD
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - HandyJSON
-    - SVProgressHUD
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   HandyJSON: 428bb18e2c34c2a77361accebf90cf64e4f74118
-  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 82ce0f6f8a534602e59f6dc77dd78faa599828ee
+PODFILE CHECKSUM: b8f0852f5ff489fcf50d0dcaeeaef854dcfad549
 
 COCOAPODS: 1.5.3

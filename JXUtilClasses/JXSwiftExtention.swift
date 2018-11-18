@@ -1,7 +1,6 @@
 
 import UIKit
 import Alamofire
-import SVProgressHUD
 import HandyJSON
 
 public class JXSwiftExtention {
@@ -28,7 +27,7 @@ public class JXBaseModel : NSObject ,HandyJSON {
             let properties = class_copyPropertyList(type(of: self), &count)
             for i in 0..<count {
                 let t = property_getName((properties?[Int(i)])!)
-                if let n = NSString(cString: t, encoding: String.Encoding.utf8.rawValue) as String?
+                if let n = NSString(cString: t!, encoding: String.Encoding.utf8.rawValue) as String?
                 {
                     let v = self.value(forKey: n ) ?? "nil"
                     dict[n] = v as AnyObject?
@@ -74,7 +73,7 @@ public class JX_NetworkManager {
         
         Alamofire.request(URLString,method: requestType , parameters: parameters).responseJSON { (response) in
             
-            SVProgressHUD.dismiss()
+//            SVProgressHUD.dismiss()
             
             //            if dataCarrier?.mj_header != nil {
             //                dataCarrier?.mj_header.endRefreshing()
@@ -90,7 +89,7 @@ public class JX_NetworkManager {
                     //                        footer.endRefreshing()
                     //                    }
                     
-                    SVProgressHUD.showError(withStatus: "网络故障,请尝试刷新")
+//                    SVProgressHUD.showError(withStatus: "网络故障,请尝试刷新")
                     print("ErrorCode:\(response.result.error ?? "" as! Error)")
                     return
             }

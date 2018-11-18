@@ -7,7 +7,7 @@ target 'JXUtilsDemo' do
 
   # Pods for JXUtilsDemo
   pod 'Alamofire'
-  pod 'SVProgressHUD'
+#  pod 'SVProgressHUD'
   pod 'HandyJSON' ,           '4.0.0-beta.1'
 
 
