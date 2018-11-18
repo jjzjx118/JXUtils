@@ -17,7 +17,6 @@
 		57244260B486B77503A5ACD2 /* Pods_JXUtilsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52A53E738F170C66F1021490 /* Pods_JXUtilsDemo.framework */; };
 		63CF372921A14CA400A71B42 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63CF372C21A14CA400A71B42 /* Alamofire.framework */; };
 		63CF372A21A14CA400A71B42 /* HandyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63CF372D21A14CA400A71B42 /* HandyJSON.framework */; };
-		63CF372B21A14CA400A71B42 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63CF372E21A14CA400A71B42 /* SVProgressHUD.framework */; };
 		63EAF929219E5E4400733622 /* JXSwiftExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EAF928219E5E4400733622 /* JXSwiftExtention.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,7 +70,6 @@
 			files = (
 				63CF372921A14CA400A71B42 /* Alamofire.framework in Frameworks */,
 				63CF372A21A14CA400A71B42 /* HandyJSON.framework in Frameworks */,
-				63CF372B21A14CA400A71B42 /* SVProgressHUD.framework in Frameworks */,
 				57244260B486B77503A5ACD2 /* Pods_JXUtilsDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
