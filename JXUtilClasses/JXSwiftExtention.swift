@@ -3,20 +3,43 @@ import UIKit
 import Alamofire
 import HandyJSON
 
+//MARK: Global Define
+
+let JX_SCREEN_WIDTH = UIScreen.main.bounds.size.width
+let JX_SCREEN_HEIGHT = UIScreen.main.bounds.size.height
+let JX_SCREEN_BOUNDS = UIScreen.main.bounds
+
+let hasNotch = ((JX_SCREEN_HEIGHT == 812.0 ) || (JX_SCREEN_HEIGHT  == 896.0)) ? true : false
+let JX_StatusBarHeight = hasNotch ? 44.0 : 20.0
+let JX_NavBarHeight = hasNotch ? 88.0 : 64.0
+let JX_TabbarHeight = hasNotch ? 49.0+34.0 : 49.0
+let JX_TabbarMargin = hasNotch ? 34.0 : 0
+
+let scaleCoefficient4_7 = 375/JX_SCREEN_WIDTH
+
 public class JXSwiftExtention {
-    static func getPreviousController(currentViewController:UIViewController)->(UIViewController?){
+
+    static func adjustFont(fontSize:CGFloat) -> (UIFont){
         
-        if currentViewController.navigationController != nil{
-            let navCon = currentViewController.navigationController!
-            return navCon.viewControllers[navCon.viewControllers.count - 2]
-        }else{
-            return nil
-        }
+      let font =  UIFont.systemFont(ofSize: fontSize * scaleCoefficient4_7)
         
+        return font
     }
+    
+    
+    static func getBundle(bundleName:String) -> (Bundle?) {
+        
+        let BundlePath = Bundle.main.path(forResource: bundleName , ofType: "bundle")
+        
+        let bundle = Bundle(path: BundlePath ?? "")
+        
+        return bundle ?? nil
+    }
+    
+    
 }
 
-public class JXBaseModel : NSObject ,HandyJSON {
+open class JXBaseModel : NSObject ,HandyJSON {
     
     required override public init() {}
     
@@ -73,11 +96,13 @@ public class JX_NetworkManager {
         
         Alamofire.request(URLString,method: requestType , parameters: parameters).responseJSON { (response) in
             
-//            SVProgressHUD.dismiss()
-            
-            //            if dataCarrier?.mj_header != nil {
-            //                dataCarrier?.mj_header.endRefreshing()
-            //            }
+            /* do some custom action
+             SVProgressHUD.dismiss()
+             
+             if dataCarrier?.mj_header != nil {
+             dataCarrier?.mj_header.endRefreshing()
+             }
+             */
             
             //判断网络状况
             guard
@@ -85,23 +110,20 @@ public class JX_NetworkManager {
                 let utf8DataStr = String(data: data, encoding: .utf8)
                 else{
                     
-                    //                    if let footer = dataCarrier?.mj_footer{
-                    //                        footer.endRefreshing()
-                    //                    }
-                    
-//                    SVProgressHUD.showError(withStatus: "网络故障,请尝试刷新")
                     print("ErrorCode:\(response.result.error ?? "" as! Error)")
                     return
             }
             
-            //回调里无需再判断status,1回调completedClosure 其余回调failureClosure
+            //do some error handle action or pass it to upper layer
             if let baseModel = JXBaseModel.deserialize(from: utf8DataStr){
-                //                if baseModel.status == 1{
-                //                    completedClosure(utf8DataStr)
-                //                }else{
-                //                    SVProgressHUD.showError(withStatus: "请求错误\nErrorCode:\(baseModel.errorCodeMsg ?? "未定义错误") ")
-                //                    failureClosure(utf8DataStr)
-                //                }
+                /*
+                 if baseModel.status == 1{
+                 completedClosure(utf8DataStr)
+                 }else{
+                 SVProgressHUD.showError(withStatus: "请求错误\nErrorCode:\(baseModel.errorCodeMsg ?? "未定义错误") ")
+                 failureClosure(utf8DataStr)
+                 }
+                 */
             }
         }
         
@@ -112,18 +134,6 @@ public class JX_NetworkManager {
     
 }
 
-//MARK: - Global Common Function
-func JX_SCREEN_WIDTH() -> CGFloat{
-    return UIScreen.main.bounds.size.width
-}
-
-func JX_SCREEN_HEIGHT() -> CGFloat{
-    return UIScreen.main.bounds.size.height
-}
-
-func JX_SCREEN_BOUNDS() -> CGRect{
-    return UIScreen.main.bounds
-}
 
 //SYSTEM CLASS EXTENTION
 extension Array where Element: Equatable {
@@ -139,16 +149,23 @@ extension Array where Element: Equatable {
 }
 
 //MARK: - UIApplication
-
 extension UIApplication {
     
-    func activeViewController()->UIViewController?{
+   open static func getPreviousController(currentViewController:UIViewController)->(UIViewController?){
+        
+        if currentViewController.navigationController != nil{
+            let navCon = currentViewController.navigationController!
+            return navCon.viewControllers[navCon.viewControllers.count - 2]
+        }else{
+            return nil
+        }
+    }
+    
+    
+    open func activeViewController()->UIViewController?{
         
         if delegate?.window == nil {return nil}
-        
-        
         var normalWindow = delegate?.window!
-        
         if normalWindow?.windowLevel != UIWindowLevelNormal {
             for obj in windows {
                 if obj.windowLevel == UIWindowLevelNormal {
@@ -183,24 +200,7 @@ extension UIApplication {
     //class end
 }
 
-//MARK: - UIImage
-extension UIImage {
-    //渲染Image颜色
-    func image(withTintColor tintColor: UIColor?) -> UIImage? {
-        //We want to keep alpha, set opaque to NO; Use 0.0f for scale to use the scale factor of the device’s main screen.
-        UIGraphicsBeginImageContextWithOptions(size, _: false, _: 0.0)
-        tintColor?.setFill()
-        let bounds = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-        UIRectFill(bounds)
-        //Draw the tinted image in context
-        draw(in: bounds, blendMode: .destinationIn, alpha: 1.0)
-        let tintedImage: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return tintedImage
-    }
-    
-}
-
+//MARK: - UIColor
 extension UIColor {
     
     class func RGBA_COLOR(red:CGFloat , green:CGFloat,blue:CGFloat,alpha:CGFloat) -> UIColor {
@@ -217,6 +217,7 @@ extension UIColor {
     }
 }
 
+//MARK: - UIView
 extension UIView{
     
     func centerX() -> CGFloat {
@@ -294,6 +295,7 @@ extension UIView{
     
 }
 
+//MARK: - UIImage
 extension UIImage{
     
     class func convertViewToImage(view:UIView) -> UIImage {
@@ -312,11 +314,30 @@ extension UIImage{
         
     }
     
+    //渲染Image颜色
+    func image(withTintColor tintColor: UIColor?) -> UIImage? {
+        //We want to keep alpha, set opaque to NO; Use 0.0f for scale to use the scale factor of the device’s main screen.
+        UIGraphicsBeginImageContextWithOptions(size, _: false, _: 0.0)
+        tintColor?.setFill()
+        let bounds = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        UIRectFill(bounds)
+        //Draw the tinted image in context
+        draw(in: bounds, blendMode: .destinationIn, alpha: 1.0)
+        let tintedImage: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return tintedImage
+    }
+    
 }
 
 //MARK: - Other Common Function
-func loadNib(nibName:String) -> [Any]? {
+func loadNib(BundleName : String?,nibName:String) -> [Any]? {
     
-    return Bundle.main.loadNibNamed(nibName, owner: nil, options: [:])
+    if  BundleName == nil {
+         return Bundle.main.loadNibNamed(nibName, owner: nil, options: [:])
+    }else{
+        return JXSwiftExtention.getBundle(bundleName: BundleName!)?.loadNibNamed(nibName, owner: nil, options: [:])
+    }
     
 }
+
